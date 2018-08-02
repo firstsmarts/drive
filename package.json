@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./configs/webpack.dev.js --color --progress",
-    "build": "webpack --config ./configs/webpack.prod.js --color --progress"
+    "build": "node ./build/build"
   },
   "author": "ck",
   "license": "MIT",
   "dependencies": {
+    "element-ui": "^2.4.5",
     "superagent": "^3.8.3",
     "vue": "^2.5.16",
+    "vue-i18n": "^8.0.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -19,13 +21,18 @@
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "babel-plugin-component": "^1.1.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "ora": "^3.0.0",
     "querystring-es3": "^0.2.1",
+    "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
     "vue-loader": "^15.2.6",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.16.3",
