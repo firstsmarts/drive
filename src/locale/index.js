@@ -1,10 +1,15 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import locale from 'element-ui/lib/locale'
 
 import messages from './langs'
 
 Vue.use(VueI18n)
-export default new VueI18n({
+
+const i18n = new VueI18n({
     locale: 'en',
     messages
 })
+locale.i18n((k,v) => i18n.t(k,v))
+
+export default i18n

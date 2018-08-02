@@ -1,8 +1,7 @@
 import Vue from 'vue'
 // ElementUI
-import {Button,DatePicker} from 'element-ui'
-import lang from 'element-ui/lib/locale/lang/zh-CN'
-import locale from 'element-ui/lib/locale'
+import {Button,DatePicker,Select,Option} from 'element-ui'
+
 
 // i18n
 import i18n from './locale'
@@ -12,11 +11,11 @@ import router from './router'
 import store from './store'
 import App from './App'
 
-// set lang
-locale.use(lang)
 // use element components
 Vue.use(Button)
 Vue.use(DatePicker)
+Vue.use(Select)
+Vue.use(Option)
 
 new Vue({
     el: '#root',

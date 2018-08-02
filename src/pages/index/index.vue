@@ -8,6 +8,10 @@
             type="date"
             placeholder="选择日期"></el-date-picker>
         </div>
+        <el-select v-model="lang" @change="switchLang">
+            <el-option value="en">en</el-option>
+            <el-option value="cn">cn</el-option>
+        </el-select>
         <el-button v-text="$t('messages.hello')"></el-button>
     </div>
     
@@ -18,7 +22,8 @@ import {mapState} from 'vuex'
 export default {
     data(){
         return {
-            value:''
+            value:'',
+            lang: 'en'
         }
     },
     created(){
@@ -27,7 +32,12 @@ export default {
     computed:mapState('index',[
         // 映射 this.count 为 store.state.count
         'avatar'
-    ])
+    ]),
+    methods:{
+        switchLang(){
+            this.$i18n.locale = this.lang
+        }
+    }
 }
 </script>
 
