@@ -2,17 +2,17 @@
     <div>
         <p>hello</p>
         <div>{{avatar}}</div>    
-        <div>
+        <!-- <div>
             <el-date-picker
             v-model="value"
             type="date"
             placeholder="选择日期"></el-date-picker>
-        </div>
-        <el-select v-model="lang" @change="switchLang">
+        </div> -->
+        <!-- <el-select v-model="lang" @change="switchLang">
             <el-option value="en">en</el-option>
             <el-option value="cn">cn</el-option>
-        </el-select>
-        <el-button v-text="$t('messages.hello')"></el-button>
+        </el-select> -->
+        <div v-text="$t('messages.hello')"></div>
     </div>
     
 </template>

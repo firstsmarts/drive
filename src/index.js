@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // ElementUI
-import {Button,DatePicker,Select,Option} from 'element-ui'
+import {Button} from 'element-ui'
 
 
 // i18n
@@ -13,9 +13,9 @@ import App from './App'
 
 // use element components
 Vue.use(Button)
-Vue.use(DatePicker)
-Vue.use(Select)
-Vue.use(Option)
+// Vue.use(DatePicker)
+// Vue.use(Select)
+// Vue.use(Option)
 
 new Vue({
     el: '#root',
