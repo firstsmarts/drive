@@ -5,8 +5,11 @@ import index from './modules/index'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-    modules:{
-        index
-    }
-})
+export function createStore(){
+
+    return new Vuex.Store({
+        modules: {
+            index
+        }
+    })
+}

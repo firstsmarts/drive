@@ -4,17 +4,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const nodeExternals = require('webpack-node-externals')
-const VueServerRenderer = require('vue-server-renderer/server-plugin')
+// const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 module.exports = {
-    entry: path.resolve(__dirname,'../src/entry-server.js'),
-    output:{
-        libraryTarget: 'commonjs2',
-        filename: 'server-bundle.js'
+    entry: path.resolve(__dirname, '../src/entry-client.js'),
+    mode: 'production',
+    output: {
+        path: path.resolve('../dist'),
+        filename: '[name]-[chunkhash:5].js',
+        
     },
-    target: 'node',
     devtool: 'source-map',
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
@@ -26,8 +27,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'vue-style-loader', 'css-loader' ]
-            }, 
+                use: ['vue-style-loader', 'css-loader']
+            },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
@@ -38,26 +39,22 @@ module.exports = {
             }
         ]
     },
-    externals: nodeExternals({
-        // do not externalize CSS files in case we need to import it from a dep
-        whitelist: /\.css$/
-    }),
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname,'../src/index.tmpl.html'),
+            template: path.resolve(__dirname, '../src/index.tmpl.html'),
             title: 'my app'
         }),
         new VueLoaderPlugin(),
-        new VueServerRenderer(),
+        // new VueSSRClientPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-            'process.env.VUE_ENV': '"server"'
+            'process.env.VUE_ENV': '"client"'
         })
     ],
-    resolve:{
-        alias:{
+    resolve: {
+        alias: {
             vue: 'vue/dist/vue.common.js'
         },
-        extensions:['.vue','.js']
+        extensions: ['.vue', '.js']
     }
 }

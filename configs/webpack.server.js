@@ -6,15 +6,15 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const nodeExternals = require('webpack-node-externals')
 const VueServerRenderer = require('vue-server-renderer/server-plugin')
 module.exports = {
-    entry: path.resolve(__dirname,'../src/entry-server.js'),
-    output:{
+    entry: path.resolve(__dirname, '../src/entry-server.js'),
+    output: {
         libraryTarget: 'commonjs2',
         filename: 'server-bundle.js'
     },
     target: 'node',
     devtool: 'source-map',
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
@@ -26,8 +26,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'vue-style-loader', 'css-loader' ]
-            }, 
+                use: ['vue-style-loader', 'css-loader']
+            },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
@@ -42,9 +42,9 @@ module.exports = {
         // do not externalize CSS files in case we need to import it from a dep
         whitelist: /\.css$/
     }),
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname,'../src/index.tmpl.html'),
+            template: path.resolve(__dirname, '../src/index.tmpl.html'),
             title: 'my app'
         }),
         new VueLoaderPlugin(),
@@ -54,10 +54,10 @@ module.exports = {
             'process.env.VUE_ENV': '"server"'
         })
     ],
-    resolve:{
-        alias:{
+    resolve: {
+        alias: {
             vue: 'vue/dist/vue.common.js'
         },
-        extensions:['.vue','.js']
+        extensions: ['.vue', '.js']
     }
 }
