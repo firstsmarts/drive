@@ -7,6 +7,7 @@ const nodeExternals = require('webpack-node-externals')
 const VueServerRenderer = require('vue-server-renderer/server-plugin')
 module.exports = {
     entry: path.resolve(__dirname, '../src/entry-server.js'),
+    mode: 'production',
     output: {
         libraryTarget: 'commonjs2',
         filename: 'server-bundle.js',

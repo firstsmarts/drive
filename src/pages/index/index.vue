@@ -14,6 +14,8 @@
         </el-select> -->
         <el-button v-text="$t('messages.hello')"></el-button>
         <router-link to="/test">Test</router-link>
+        <div>hello</div>
+        <div>hello</div>
     </div>
     
 </template>
