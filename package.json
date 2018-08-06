@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config ./configs/webpack.client.js --color --progress",
-    "build": "node ./build/build"
+    "build:client": "node ./build/build client",
+    "build:server": "node ./build/build server",
+    "build": "npm run build:client && npm run build:server"
   },
   "author": "ck",
   "license": "MIT",

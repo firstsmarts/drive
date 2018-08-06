@@ -34,7 +34,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 10000,
-                    name: path.resolve('../dist/fonts/[name].[hash:5].[ext]')
+                    name: '../client-dist/fonts/[name].[hash:5].[ext]'
                 }
             }
         ]
