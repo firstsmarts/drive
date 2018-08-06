@@ -24,12 +24,13 @@ const bundle = require('./dist/vue-ssr-server-bundle.json')
 // The client manifests are optional, but it allows the renderer
 // to automatically infer preload/prefetch links and directly add <script>
 // tags for any async chunks used during render, avoiding waterfall requests.
+const clientManifest = require('./client-dist/vue-ssr-client-manifest.json')
 renderer = createRenderer(bundle, {
-    template
+    template,
+    clientManifest
 })
 const serve = (url, cache) => express.static(path.resolve(url))
-app.use('/dist', serve('./dist', true))
-app.use('/public', serve('./public', true))
+app.use(serve('./client-dist', true))
 
 function render(req, res) {
     const s = Date.now()

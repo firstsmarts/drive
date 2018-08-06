@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { createApp } from './app'
+import { createApp } from './index'
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({

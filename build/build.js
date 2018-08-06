@@ -2,7 +2,7 @@ const rm = require('rimraf')
 const ora = require('ora')
 const path = require('path')
 const webpack = require('webpack')
-const config = require('../configs/webpack.prod')
+const config = require('../configs/webpack.server')
 
 const loading = ora('building...')
 loading.start()

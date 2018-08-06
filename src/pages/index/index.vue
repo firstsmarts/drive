@@ -13,6 +13,7 @@
             <el-option value="cn">cn</el-option>
         </el-select> -->
         <el-button v-text="$t('messages.hello')"></el-button>
+        <router-link to="/test">Test</router-link>
     </div>
     
 </template>

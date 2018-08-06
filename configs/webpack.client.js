@@ -4,12 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const nodeExternals = require('webpack-node-externals')
-// const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 module.exports = {
-    entry: path.resolve(__dirname, '../src/entry-client.js'),
+    entry: path.resolve(__dirname, '../src/entry-client'),
     mode: 'production',
     output: {
-        path: path.resolve('../dist'),
+        path: path.resolve('./client-dist'),
         filename: '[name]-[chunkhash:5].js',
         
     },
@@ -45,7 +45,7 @@ module.exports = {
             title: 'my app'
         }),
         new VueLoaderPlugin(),
-        // new VueSSRClientPlugin(),
+        new VueSSRClientPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
             'process.env.VUE_ENV': '"client"'

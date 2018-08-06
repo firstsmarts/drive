@@ -9,7 +9,8 @@ module.exports = {
     entry: path.resolve(__dirname, '../src/entry-server.js'),
     output: {
         libraryTarget: 'commonjs2',
-        filename: 'server-bundle.js'
+        filename: 'server-bundle.js',
+        path: path.resolve(__dirname,'../dist')
     },
     target: 'node',
     devtool: 'source-map',
